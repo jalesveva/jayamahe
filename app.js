@@ -7,11 +7,21 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>'
 }).addTo(map);
-
+var markerOptions = {
+  radius: 6,
+  fillColor: '#ff33cc',
+  color: '#000',
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8
+};
 var request = new XMLHttpRequest();
 request.open('GET', 'http://dev.aegis.co.id:9001/points', true);
 request.onload = function() {
   L.geoJson(JSON.parse(this.responseText), {
+    pointToLayer: function(feature, latlng) {
+      return L.circleMarker(latlng, markerOptions);
+    },
     onEachFeature : function(feature, layer) {
       layer.bindPopup(feature.properties.NAMA_KAPAL_VMS);
     }
