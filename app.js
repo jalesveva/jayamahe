@@ -9,7 +9,7 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var request = new XMLHttpRequest();
-request.open('GET', 'data/data-2015-05-22-min.json', true);
+request.open('GET', 'jayamahe/data/data-2015-05-22-min.json', true);
 request.onload = function() {
   L.geoJson(JSON.parse(this.responseText), {
     onEachFeature : function(feature, layer) {
