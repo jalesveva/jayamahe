@@ -6,7 +6,7 @@ var tiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', 
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>'
-});
+}).addTo(map);
 
 var markerOptions = {
   radius: 6,
@@ -16,6 +16,7 @@ var markerOptions = {
   opacity: 1,
   fillOpacity: 0.8
 };
+
 var request = new XMLHttpRequest();
 request.open('GET', 'http://dev.aegis.co.id:9001/points', true);
 request.onload = function() {
@@ -26,9 +27,11 @@ request.onload = function() {
     }
   });
   markers.addLayer(geoJson);
-  map.addLayer(tiles);
   map.addLayer(markers);
   map.fitBounds(markers.getBounds());
 }
-request.send();
+
+tiles.on('load', function(event){
+  request.send();
+});
 
