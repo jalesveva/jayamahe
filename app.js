@@ -1,4 +1,4 @@
-var map = L.map('map').setView([-1.269160, 116.825264], 5);
+var map = L.map('map').setView([-1.269160, 116.825264], 3);
 L.mapbox.accessToken = 'pk.eyJ1IjoiZGlvcmFobWFuIiwiYSI6IkNQLXNqX2MifQ.2U5fcgqoKq5qxwkbdyjRYQ';
 var tiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
   id: 'diorahman.m9o84opn',
