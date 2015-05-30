@@ -31,7 +31,16 @@ function get() {
     var markers = L.markerClusterGroup();
     var geoJson = L.geoJson(JSON.parse(this.responseText), {
       onEachFeature : function(feature, layer) {
-        layer.bindPopup(feature.properties.namaKapalVms);
+        var content = '';
+        for (var k in feature.properties) {
+          var line = '<span>' + feature.properties[k] + '</span>';
+          if (k.toLowerCase().indexOf('vms') >= 0) {
+            line = '<b>' + line + '</b>';
+          }
+          content += line;
+          content += '<br />';
+        }
+        layer.bindPopup(content);
       }
     });
     markers.addLayer(geoJson);
