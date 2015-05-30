@@ -22,21 +22,24 @@ var markerOptions = {
   fillOpacity: 0.8
 };
 
-var request = new XMLHttpRequest();
-request.open('GET', 'data/dummy/data-2015-05-22-min.geojson', true);
-request.onload = function() {
-  var markers = L.markerClusterGroup();
-  var geoJson = L.geoJson(JSON.parse(this.responseText), {
-    onEachFeature : function(feature, layer) {
-      layer.bindPopup(feature.properties.namaKapalVms);
-    }
-  });
-  markers.addLayer(geoJson);
-  map.addLayer(markers);
-  map.fitBounds(markers.getBounds());
+function get() {
+  var request = new XMLHttpRequest();
+  request.open('GET', 'data/dummy/data-2015-05-22-min.geojson', true);
+  request.onload = function() {
+    var markers = L.markerClusterGroup();
+    var geoJson = L.geoJson(JSON.parse(this.responseText), {
+      onEachFeature : function(feature, layer) {
+        layer.bindPopup(feature.properties.namaKapalVms);
+      }
+    });
+    markers.addLayer(geoJson);
+    map.addLayer(markers);
+    map.fitBounds(markers.getBounds());
+  }
+  request.send();
 }
 
-tiles.on('load', function(event){
-  request.send();
+tiles.on('load', function(event) {
+  get();
 });
 
