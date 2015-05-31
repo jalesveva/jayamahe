@@ -52,6 +52,10 @@ function get() {
     request.send();
 }
 
+paceOptions = {
+  restartOnRequestAfter: false
+}
+
 tiles.on('load', function(event) {
   get();
 });
