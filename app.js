@@ -26,7 +26,7 @@ var first = false;
 
 function get() {
   var request = new XMLHttpRequest();
-  request.open('GET', 'data/dummy/data-2015-06-03-min.geojson', true);
+  request.open('GET', 'data/dummy/data-2015-05-22-min.geojson', true);
   request.onload = function() {
     var markers = L.markerClusterGroup();
     var geoJson = L.geoJson(JSON.parse(this.responseText), {
