@@ -12,7 +12,7 @@ Data yang ada di dalam proyek ini hingga waktu penulisan berasal dari dokumen ya
 Peraturan ini mendefinisikan batas wilayah pengelolaan perikanan Negara Republik Indonesia.
 Pengelompokan wilayah ditentukan dengan koordinat tertentu di atas laut Indonesia. 
 
-![alt text](http://i.imgur.com/vJEGwFA.png "Peta Wilayah Pengelolaan Perikanan Negara Republik Indonesia")
+![alt text](https://cloud.githubusercontent.com/assets/1234972/8004153/50ca10cc-0ba7-11e5-93db-7bae18fe4605.jpg "Peta Wilayah Pengelolaan Perikanan Negara Republik Indonesia")
 ### Keterangan
 1. **WPPNRI 571**, meliputi perairan Selat Malaka dan Laut Andaman.
 2. **WPP-RI 572**, meliputi perairan Samudera Hindia sebelah barat Sumatera dan Selat Sunda.
